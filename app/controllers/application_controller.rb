@@ -13,22 +13,6 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-  get "/signup" do
-
-  end
-
-  post "/signup" do
-
-  end
-
-  get "/login" do
-
-  end
-
-  post "/login" do
-
-  end
-
   helpers
 
 end
