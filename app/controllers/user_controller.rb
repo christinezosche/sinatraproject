@@ -41,6 +41,16 @@ class UserController < ApplicationController
     get '/login_error' do
         erb :'users/login_error'
     end
+
+    post '/view_my_flights' do
+        @user = current_user
+        erb :'users/view_flights'
+    end
+
+    post '/logout' do
+        session.clear
+        redirect '/'
+    end
     
 
 end
