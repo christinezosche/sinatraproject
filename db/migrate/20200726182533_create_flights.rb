@@ -6,5 +6,6 @@ class CreateFlights < ActiveRecord::Migration
       t.string :destination
       t.string :date
       t.string :user_id
+    end
   end
 end

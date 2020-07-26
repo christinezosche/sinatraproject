@@ -7,6 +7,8 @@ class UserController < ApplicationController
     post "/signup" do
         if params[:username] == "" || params[:password] == ""
             redirect '/signup_error'
+        elsif User.find_by(username: params[:username])
+            redirect '/username_error'
         else
             @user = User.create(username: params[:username], password: params[:password])
             session[:user_id] = @user[:id]
@@ -15,7 +17,11 @@ class UserController < ApplicationController
     end
 
     get "/signup_error" do
-        erb :signup_error
+        erb :'users/signup_error'
+    end
+
+    get "/username_error" do
+        erb :'users/username_error'
     end
     
     get "/login" do
