@@ -8,4 +8,8 @@ class FlightController < ApplicationController
         end
     end
 
+    post '/create_new_flight' do
+
+    end
+
 end
