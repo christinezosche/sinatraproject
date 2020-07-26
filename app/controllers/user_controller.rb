@@ -5,13 +5,12 @@ class UserController < ApplicationController
     end
     
     post "/signup" do
-        @user = User.new(username: params[:username], password: params[:password])
-        if @user.save
-            @user.save
+        if params[:username] == "" || params[:password] == ""
+            redirect '/signup-error'
+        else
+            @user = User.create(username: params[:username], password: params[:password])
             session[:user_id] = @user[:id]
             redirect '/flights'
-        else
-            redirect '/signup'
         end
     end
     
