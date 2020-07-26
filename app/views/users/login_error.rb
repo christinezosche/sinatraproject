@@ -1,4 +1,4 @@
-Please log in to schedule and view your flights.
+Login error. Please try again.
 
 <form action="/login" method="POST">
 Username: <input_type="text" name="username"><br>
