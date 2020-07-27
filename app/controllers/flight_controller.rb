@@ -39,5 +39,22 @@ class FlightController < ApplicationController
         redirect '/flights'
     end
 
+    patch '/flights/:id' do
+        booked_flight = Flight.find_by(date: params[:date], ship: params[:ship])
+        if booked_flight
+            erb :'/flights/edit_flight_error'
+        else
+        @flight = Flight.find(params[:id])
+            @flight.date = params[:date]
+            @flight.ship = params[:ship]
+            @flight.items = params[:items]
+            @flight.destination = params[:destination]
+            @flight.save
+            redirect '/flights'
+        end
+    end
+
+
+
 
 end
