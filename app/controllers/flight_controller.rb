@@ -41,8 +41,9 @@ class FlightController < ApplicationController
 
     patch '/flights/:id' do
         @flight = Flight.find(params[:id])
-        booked_flight = Flight.find_by(date: params[:date], ship: params[:ship])
-        if booked_flight && booked_flight.date != @flight.date && booked_flight.ship != @flight.ship
+        other_flights = Flight.where.not(id: @flight.id)
+        booked_flight = other_flights.find_by(date: params[:date], ship: params[:ship])
+        if booked_flight
             erb :'/flights/edit_flight_error'
         else
             @flight.update(date: params[:date], ship: params[:ship], items: params[:items], destination: params[:destination])
