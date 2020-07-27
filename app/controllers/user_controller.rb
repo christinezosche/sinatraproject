@@ -46,14 +46,18 @@ class UserController < ApplicationController
         erb :'users/login_error'
     end
 
-    post '/view_my_flights' do
-        @user = current_user
-        erb :'users/view_flights'
-    end
-
-    post '/logout' do
+    get '/logout' do
         session.clear
         redirect '/'
+    end
+
+    get '/users/:id' do
+        @user = User.find(params[:id])
+        if !@user.nil? && @user == current_user
+            erb :'users/view_flights'
+        else
+            redirect '/flights'
+        end
     end
     
 

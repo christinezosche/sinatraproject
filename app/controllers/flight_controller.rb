@@ -5,11 +5,11 @@ class FlightController < ApplicationController
             redirect '/'
         else
         @flights = Flight.all.sort_by{|flight| flight[:date]}
-        erb :'flights/index'
+        erb :'/flights/index'
         end
     end
 
-    post '/create_new_flight' do
+    get '/flights/new' do
         erb :'/flights/new'
     end
 
@@ -22,5 +22,11 @@ class FlightController < ApplicationController
         redirect '/flights'
         end
     end
+
+    get '/flights/:id' do
+        @flight = Flight.all.find(params[:id])
+        erb :'/flights/show'
+    end
+
 
 end

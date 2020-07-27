@@ -1,0 +1,6 @@
+Click to view or edit flight.<br>
+<br>
+
+<% @user.flights.each do |flight| %>
+    <a href="/flights/<%= flight.id %>"><p><strong>Date:</strong> <%= flight.date %> | <strong>Destination:</strong> <%= flight.destination %> | <strong>Ship:</strong> <%= flight.ship %> | <strong>Cargo:</strong> <%= flight.items %><br></a>
+<% end %><br>

@@ -1,0 +1,10 @@
+<p><strong>Date:</strong> <%= @flight.date %><br>
+<strong>Destination:</strong> <%= @flight.destination %><br>
+<strong>Ship:</strong> <%= @flight.ship %><br>
+<strong>Cargo:</strong> <%= @flight.items %><br>
+
+<a href="/flights/<%= @flight.id %>/edit">Edit Flight</a><br>
+
+<a href="/users/<%= @flight.id %>/delete">Delete Flight</a><br>
+
+<a href="/users/logout">Log Out</a>

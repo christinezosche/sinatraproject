@@ -9,15 +9,8 @@
 <br>
 
 
+<a href="/flights/new">Schedule a New Flight</a><br>
 
-<form action="/create_new_flight" method="POST">
-<input type="submit" value="Schedule a New Flight">
-</form>
+<a href="/users/<%= current_user.id %>">View/Edit Your Flights</a><br>
 
-<form action="/view_my_flights" method="POST">
-<input type="submit" value="View/Edit Your Flights">
-</form>
-
-<form action="/logout" method="POST">
-<input type="submit" value="Log Out">
-</form>
+<a href="/users/logout">Log Out</a>
