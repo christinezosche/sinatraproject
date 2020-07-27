@@ -1,0 +1,21 @@
+Schedule a new flight.<br>
+<br>
+<form action='/new_flight' method='POST'>
+Departure date: <input type="date" name="date"><br>
+<br>
+List cargo: <input type="text" name="items" value="(Lightsaber, jetpack, space apples, etc.)"><br>
+<br>
+Choose ship: <br>
+    <input type="checkbox" name="ship" value="millennium_falcon"> Millennium Falcon<br>
+    <input type="checkbox" name="ship" value="x_wing"> X-Wing<br>
+    <input type="checkbox" name="ship" value="lambda_shuttle"> Lambda Shuttle<br>
+    <input type="checkbox" name="ship" value="starfreighter"> Starfreighter<br>
+<br>
+Choose destination: <br>
+    <input type="checkbox" name="destination" value="tatooine"> Tatooine<br>
+    <input type="checkbox" name="destination" value="hoth"> Hoth<br>
+    <input type="checkbox" name="destination" value="alderaan"> Alderaan<br>
+    <input type="checkbox" name="destination" value="yavin_4"> Yavin 4<br>
+<br>
+<input type="submit" value="Schedule Flight">
+</form>

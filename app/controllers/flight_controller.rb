@@ -9,6 +9,10 @@ class FlightController < ApplicationController
     end
 
     post '/create_new_flight' do
+        erb :'/flights/new'
+    end
+
+    post '/new_flight' do
 
     end
 
