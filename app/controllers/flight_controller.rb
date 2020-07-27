@@ -4,6 +4,7 @@ class FlightController < ApplicationController
         if !logged_in?
             redirect '/'
         else
+        @flights = Flight.all.sort_by{|flight| flight[:date]}
         erb :'flights/index'
         end
     end
@@ -17,7 +18,7 @@ class FlightController < ApplicationController
         if booked_flight
             erb :'/flights/flight_error'
         else
-        @flight = Flight.create(date: params[:date], ship: params[:ship], items: params[:items], destination: params[:destination], user_id: current_user.id)
+        Flight.create(date: params[:date], ship: params[:ship], items: params[:items], destination: params[:destination], user_id: current_user.id)
         redirect '/flights'
         end
     end

@@ -1,4 +1,13 @@
-These are all the flights.<br>
+<h1>Welcome, <%=current_user.username %>.</h1>
+
+<h2>All scheduled flights:</h2><br>
+
+
+<% @flights.each do |flight| %>
+    <p><strong>Date:</strong> <%= flight.date %> | <strong>Destination:</strong> <%= flight.destination %> | <strong>Ship:</strong> <%= flight.ship %> | <strong>Pilot:</strong> <%= flight.user.username %><br>
+<% end %><br>
+<br>
+
 
 
 <form action="/create_new_flight" method="POST">
