@@ -1,0 +1,11 @@
+Click on a flight to view it.<br>
+<br>
+
+<% @user.flights.each do |flight| %>
+    <a href="/flights/<%= flight.id %>"><p><strong>Date:</strong> <%= flight.date %> | <strong>Destination:</strong> <%= flight.destination %>
+<% end %><br>
+<br>
+
+
+<a href="/flights"><< Go Back to All Flights</a><br>
+<a href="/users/logout">Log Out</a><br>

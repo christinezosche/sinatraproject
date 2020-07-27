@@ -28,29 +28,25 @@ class FlightController < ApplicationController
         erb :'/flights/show'
     end
 
-    get '/flights/:id/edit' do
+    post '/flights/:id/edit' do
         @flight = Flight.all.find(params[:id])
         erb :'/flights/edit'
     end
 
-    get '/flights/:id/destroy' do
+    post '/flights/:id/delete' do
         flight = Flight.all.find(params[:id])
         flight.destroy
         redirect '/flights'
     end
 
     patch '/flights/:id' do
+        @flight = Flight.find(params[:id])
         booked_flight = Flight.find_by(date: params[:date], ship: params[:ship])
-        if booked_flight
+        if booked_flight && booked_flight.date != @flight.date && booked_flight.ship != @flight.ship
             erb :'/flights/edit_flight_error'
         else
-        @flight = Flight.find(params[:id])
-            @flight.date = params[:date]
-            @flight.ship = params[:ship]
-            @flight.items = params[:items]
-            @flight.destination = params[:destination]
-            @flight.save
-            redirect '/flights'
+            @flight.update(date: params[:date], ship: params[:ship], items: params[:items], destination: params[:destination])
+            redirect "/flights/#{@flight.id}"
         end
     end
 

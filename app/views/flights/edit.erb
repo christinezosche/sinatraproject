@@ -1,6 +1,4 @@
-Edit flight.
 
-<br>
 <form action="/flights/<%= @flight.id %>" method="POST">
 <input id="hidden" type="hidden" name="_method" value="patch">
 Departure date: <input type="date" name="date" value="<%= @flight.date %>" required><br>
@@ -20,5 +18,6 @@ Choose destination: <br>
     <input type="radio" name="destination" value="Alderaan" <%='checked' if @flight.destination == "Alderaan" %> required> Alderaan<br>
     <input type="radio" name="destination" value="Yavin 4" <%='checked' if @flight.destination == "Yavin 4" %> required> Yavin 4<br>
 <br>
-<input type="submit" value="Edit Flight">
-</form>
+<input type="submit" value="Edit Flight"></form> 
+</form><br><br>
+<a href="/flights/<%= @flight.id %>"><< Go Back Without Editing</a><br>
