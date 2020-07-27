@@ -28,5 +28,16 @@ class FlightController < ApplicationController
         erb :'/flights/show'
     end
 
+    get '/flights/:id/edit' do
+        @flight = Flight.all.find(params[:id])
+        erb :'/flights/edit'
+    end
+
+    get '/flights/:id/destroy' do
+        flight = Flight.all.find(params[:id])
+        flight.destroy
+        redirect '/flights'
+    end
+
 
 end
