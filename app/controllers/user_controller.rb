@@ -21,11 +21,19 @@ class UserController < ApplicationController
     end
 
     get "/signup_error" do
+        if logged_in?
+            redirect "/flights"
+        else
         erb :'users/signup_error'
+        end
     end
 
     get "/username_error" do
+        if logged_in?
+            redirect "/flights"
+        else
         erb :'users/username_error'
+        end
     end
     
     get "/login" do
@@ -47,11 +55,13 @@ class UserController < ApplicationController
     end
 
     get '/users/logout' do
+        redirect_if_not_logged_in
         session.clear
         redirect '/'
     end
 
     get '/users/:id' do
+        redirect_if_not_logged_in
         @user = User.find(params[:id])
         if !@user.nil? && @user == current_user
             erb :'users/show'

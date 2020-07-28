@@ -1,0 +1,22 @@
+You have already booked a flight for that date. Please try again.<br>
+<br>
+<form action='/new_flight' method='POST'>
+Departure date: <input type="date" name="date" required><br>
+<br>
+List cargo: <br>
+<input type="text" style="width:263px";" name="items" placeholder="Lightsaber, jetpack, space apples, etc." required><br>
+<br>
+Choose ship: <br>
+    <input type="radio" name="ship" value="Millennium Falcon" required> Millennium Falcon<br>
+    <input type="radio" name="ship" value="X-Wing" required> X-Wing<br>
+    <input type="radio" name="ship" value="Lambda Shuttle" required> Lambda Shuttle<br>
+    <input type="radio" name="ship" value="Starfreighter" required> Starfreighter<br>
+<br>
+Choose destination: <br>
+    <input type="radio" name="destination" value="Tatooine" required> Tatooine<br>
+    <input type="radio" name="destination" value="Hoth" required> Hoth<br>
+    <input type="radio" name="destination" value="Alderaan" required> Alderaan<br>
+    <input type="radio" name="destination" value="Yavin 4" required> Yavin 4<br>
+<br>
+<input type="submit" value="Schedule Flight">
+</form>
