@@ -26,27 +26,23 @@ class FlightController < ApplicationController
     end
 
     get '/flights/:id' do
-        redirect_if_not_logged_in
-        @flight = Flight.all.find(params[:id])
+        verify_user
         erb :'/flights/show'
     end
 
     post '/flights/:id/edit' do
-        redirect_if_not_logged_in
-        @flight = Flight.all.find(params[:id])
+        verify_user
         erb :'/flights/edit'
     end
 
     post '/flights/:id/delete' do
-        redirect_if_not_logged_in
-        flight = Flight.all.find(params[:id])
-        flight.destroy
+        verify_user
+        @flight.destroy
         redirect '/flights'
     end
 
     patch '/flights/:id' do
-        redirect_if_not_logged_in
-        @flight = Flight.find(params[:id])
+        verify_user
         other_flights = Flight.where.not(id: @flight.id)
         booked_flight = other_flights.find_by(date: params[:date], ship: params[:ship])
         date_taken = other_flights.find_by(date: params[:date], user_id: current_user.id)

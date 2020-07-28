@@ -19,6 +19,18 @@ class ApplicationController < Sinatra::Base
         redirect "/"
       end
     end
+
+    def must_be_current_user
+      if @flight.user_id != current_user.id
+        redirect "/flights"
+      end
+    end
+
+    def verify_user
+      @flight = Flight.find(params[:id])
+        redirect_if_not_logged_in
+        must_be_current_user
+    end
     
     def logged_in?
       !!session[:user_id]
