@@ -11,15 +11,61 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <style type="text/css">
+      body { 
+        position: absolute;
+        top: 5em;
+        left: 5em;
+        font-family: "Arial Narrow", "Arial", sans-serif;
+        color: white;
+        background-image:
+        url('https://images.pexels.com/photos/1341279/pexels-photo-1341279.jpeg?cs=srgb&dl=cluster-of-stars-1341279.jpg&fm=jpg');
+        background-size: cover;
+        background-color: black }
+      h1 { 
+        font-family: "Arial Black", "Arial", sans-serif;
+        color: yellow }
+      a:link {
+        color: yellow;
+        font-weight: bold;
+        text-decoration: none}
+      a:hover {
+          text-decoration: underline}
+      a:visited {
+        color: yellow; 
+        font-weight: bold;
+        text-decoration: none}
+
+      input[type=text] {
+          border: 2px solid white;
+          outline: none;
+          background-color: black;
+          color: yellow
+        }
+        input[type=password] {
+          border: 2px solid white;
+          outline: none;
+          background-color: black;
+          color: yellow
+        }
+        input[type=submit] {
+          font-family: "Arial", sans-serif;
+          background-color: black;
+          border: 2px solid white;
+          color: yellow;
+          font-weight: bold;
+          padding: 5px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block }
+    </style>
+  
   </head>
   <body>
     <div class="wrapper">
 
         <%= yield %>
 
-      <footer class="branding">
-      </footer>
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

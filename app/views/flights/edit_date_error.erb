@@ -1,21 +1,19 @@
 You have already booked a flight for that date. Please try again.<br>
 <br>
-
-<br>
 <form action="/flights/<%= @flight.id %>" method="POST">
 <input id="hidden" type="hidden" name="_method" value="patch">
-Departure date: <input type="date" name="date" value="<%= @flight.date %>" required><br>
+<label>Departure date:</label> <input type="date" name="date" value="<%= @flight.date %>" required><br>
 <br>
-List cargo: <br>
+<label>List cargo:</label> <br>
 <input type="text" style="width:263px";" name="items" value="<%= @flight.items %>" required><br>
 <br>
-Choose ship: <br>
+<label>Choose ship:</label> <br>
     <input type="radio" name="ship" value="Millennium Falcon" <%='checked' if @flight.ship == "Millennium Falcon" %> required> Millennium Falcon<br>
     <input type="radio" name="ship" value="X-Wing" <%='checked' if @flight.ship == "X-Wing" %> required> X-Wing<br>
     <input type="radio" name="ship" value="Lambda Shuttle" <%='checked' if @flight.ship == "Lambda Shuttle" %> required> Lambda Shuttle<br>
     <input type="radio" name="ship" value="Starfreighter" <%='checked' if @flight.ship == "Starfreighter" %> required> Starfreighter<br>
 <br>
-Choose destination: <br>
+<label>Choose destination:</label> <br>
     <input type="radio" name="destination" value="Tatooine" <%='checked' if @flight.destination == "Tatooine" %> required> Tatooine<br>
     <input type="radio" name="destination" value="Hoth" <%='checked' if @flight.destination == "Hoth" %> required> Hoth<br>
     <input type="radio" name="destination" value="Alderaan" <%='checked' if @flight.destination == "Alderaan" %> required> Alderaan<br>
@@ -23,5 +21,4 @@ Choose destination: <br>
 <br>
 <input type="submit" value="Edit Flight"></form> 
 </form><br><br>
-
 <a href="/flights/<%= @flight.id %>"><< Go Back Without Editing</a><br>
