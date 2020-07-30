@@ -1,16 +1,24 @@
 <h1>Welcome, <%=current_user.username %>.</h1>
 
-<h2>All scheduled flights:</h2><br>
+<h2>All scheduled flights:</h2>
 
-
+<table>
+  <tr>
+    <th style="text-align:left">Date:</th>
+    <th style="text-align:left">Destination:</th>
+    <th style="text-align:left">Ship:</th>
+    <th style="text-align:left">Pilot:</th>
+ 
 <% @flights.each do |flight| %>
-    <p><strong>Date:</strong> <%= flight.date %> | <strong>Destination:</strong> <%= flight.destination %> | <strong>Ship:</strong> <%= flight.ship %> | <strong>Pilot:</strong> <%= flight.user.username %><br>
-<% end %><br>
-<br>
+    <tr>
+    <td> <%= flight.date %> </td>
+    <td> <%= flight.destination %> </td>
+    <td> <%= flight.ship %> </td>
+    <td> <%= flight.user.username %> </td>
+    </tr>
+<% end %>
+</table>
+<br><br>
+<a href="/flights/new">Schedule a New Flight</a> | <a href="/users/<%= current_user.id %>">View/Edit Your Flights</a> | <a href="/flights">View All Flights</a> | <a href="/users/logout">Log Out</a>
 
 
-<a href="/flights/new">Schedule a New Flight</a><br>
-
-<a href="/users/<%= current_user.id %>">View/Edit Your Flights</a><br>
-
-<a href="/users/logout">Log Out</a>
