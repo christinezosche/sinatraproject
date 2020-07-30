@@ -1,10 +1,27 @@
 
-<h1>Flight Details</h1><br>
-<p><strong>Date:</strong> <%= @flight.date %> | <strong>Destination:</strong> <%= @flight.destination %> | <strong>Ship:</strong> <%= @flight.ship %> | <strong>Cargo:</strong> <%= @flight.items %><br>
+<h2>Flight Details</h2>
+
+<table>
+  <tr>
+    <th style="text-align:left">Date:</th>
+    <th style="text-align:left">Destination:</th>
+    <th style="text-align:left">Ship:</th>
+    <th style="text-align:left">Cargo:</th>
+ 
+    <tr>
+    <td> <%= @flight.date %> </td>
+    <td> <%= @flight.destination %> </td>
+    <td> <%= @flight.ship %> </td>
+    <td> <%= @flight.items %> </td>
+    </tr>
+</table>
 <br>
+<br>
+<div style="float: left">
+<form action="/flights/<%= @flight.id %>/edit" method="POST"><input type="submit" value="Edit Flight"></form>
+</div> 
+<div style="float: right; width: 950px"><form action="/flights/<%= @flight.id %>/delete" method="POST"><input type="submit" value="Delete Flight"></form>
+</div>
+<br><br><br>
+<a href="/flights/new">Schedule a New Flight</a> | <a href="/users/<%= current_user.id %>">View/Edit Your Flights</a> | <a href="/flights">View All Flights</a> | <a href="/users/logout">Log Out</a>
 
-
-<form action="/flights/<%= @flight.id %>/edit" method="POST"><input type="submit" value="Edit Flight"></form> <form action="/flights/<%= @flight.id %>/delete" method="POST"><input type="submit" value="Delete Flight"></form>
-
-<a href="/users/<%= current_user.id %>"><< Go Back to My Flights</a><br>
-<a href="/users/logout">Log Out</a><br><br>

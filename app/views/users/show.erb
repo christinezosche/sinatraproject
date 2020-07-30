@@ -1,11 +1,11 @@
-Click on a flight to view it.<br>
-<br>
+<h1><%= current_user.username %>'s Flights</h1>
+<h2>Click on a flight's departure date to view more details.</h2>
 
 <% @user.flights.each do |flight| %>
-    <a href="/flights/<%= flight.id %>"><p><strong>Date:</strong> <%= flight.date %> | <strong>Destination:</strong> <%= flight.destination %>
-<% end %><br>
-<br>
+    <p><a href="/flights/<%= flight.id %>"><%= flight.date %></a> | <strong>Destination:</strong> <%= flight.destination %>
+<% end %>
+
+<br><br><br>
+<a href="/flights/new">Schedule a New Flight</a> | <a href="/users/<%= current_user.id %>">View/Edit Your Flights</a> | <a href="/flights">View All Flights</a> | <a href="/users/logout">Log Out</a>
 
 
-<a href="/flights"><< Go Back to All Flights</a><br>
-<a href="/users/logout">Log Out</a><br>
