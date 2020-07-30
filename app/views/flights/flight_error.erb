@@ -1,5 +1,5 @@
-That ship is already booked for that date. Please try again.<br>
-<br>
+<h2>That ship is already booked for that date. Please try again.</h2>
+
 <form action='/new_flight' method='POST'>
 <label>Departure date:</label> <input type="date" name="date" required><br>
 <br>
@@ -20,3 +20,5 @@ That ship is already booked for that date. Please try again.<br>
 <br>
 <input type="submit" value="Schedule Flight">
 </form>
+<br><br><br>
+<a href="/flights/new">Schedule a New Flight</a> | <a href="/users/<%= current_user.id %>">View/Edit Your Flights</a> | <a href="/flights">View All Flights</a> | <a href="/users/logout">Log Out</a>

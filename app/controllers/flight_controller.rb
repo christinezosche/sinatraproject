@@ -38,7 +38,7 @@ class FlightController < ApplicationController
     post '/flights/:id/delete' do
         verify_user
         @flight.destroy
-        redirect '/flights'
+        redirect "/users/#{current_user.id}"
     end
 
     patch '/flights/:id' do

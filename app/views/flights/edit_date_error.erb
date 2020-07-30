@@ -1,5 +1,4 @@
-You have already booked a flight for that date. Please try again.<br>
-<br>
+<h2>You have already booked a flight for that date. Please try again.</h2>
 <form action="/flights/<%= @flight.id %>" method="POST">
 <input id="hidden" type="hidden" name="_method" value="patch">
 <label>Departure date:</label> <input type="date" name="date" value="<%= @flight.date %>" required><br>
@@ -20,5 +19,8 @@ You have already booked a flight for that date. Please try again.<br>
     <input type="radio" name="destination" value="Yavin 4" <%='checked' if @flight.destination == "Yavin 4" %> required> Yavin 4<br>
 <br>
 <input type="submit" value="Edit Flight"></form> 
-</form><br><br>
-<a href="/flights/<%= @flight.id %>"><< Go Back Without Editing</a><br>
+<br>
+<a href="/flights/<%= @flight.id %>"><< Go Back Without Editing</a>
+
+<br><br><br>
+<a href="/flights/new">Schedule a New Flight</a> | <a href="/users/<%= current_user.id %>">View/Edit Your Flights</a> | <a href="/flights">View All Flights</a> | <a href="/users/logout">Log Out</a>
