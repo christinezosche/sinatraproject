@@ -1,4 +1,4 @@
-<h1>Welcome, <%=current_user.username %>.</h1>
+<h1>Welcome, <%=current_user.name %>.</h1>
 
 <h2>All scheduled flights:</h2>
 
@@ -14,7 +14,7 @@
     <td> <%= flight.date %> </td>
     <td> <%= flight.destination %> </td>
     <td> <%= flight.ship %> </td>
-    <td> <%= flight.user.username %> </td>
+    <td> <%= flight.user.name %> </td>
     </tr>
 <% end %>
 </table>
