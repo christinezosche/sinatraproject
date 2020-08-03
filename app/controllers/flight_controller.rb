@@ -26,8 +26,12 @@ class FlightController < ApplicationController
     end
 
     get '/flights/:id' do
-        verify_user
-        erb :'/flights/show'
+        if Flight.find_by(id: params[:id])
+            verify_user
+            erb :'/flights/show'
+        else
+            redirect '/flights'
+        end
     end
 
     post '/flights/:id/edit' do
